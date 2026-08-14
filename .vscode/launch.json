@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GD32F303 Debug - OpenOCD ST-LINK",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/gcc-debug/galvanometer.elf",
+            "device": "STM32F103xG",
+            "interface": "swd",
+            "runToEntryPoint": "main",
+            "gdbPath": "D:/app/VSCode/data/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+            "serverpath": "D:/app/openocd/bin/openocd.exe",
+            "searchDir": [
+                "D:/app/openocd/share/openocd/scripts"
+            ],
+            "configFiles": [
+                "${workspaceFolder}/.vscode/openocd_gd32f303_stlink.cfg"
+            ],
+            "preLaunchTask": "CMake: build"
+        }
+    ]
+}

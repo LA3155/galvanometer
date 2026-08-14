@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/app/VSCode/project/galvanometer/build/gcc-debug/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

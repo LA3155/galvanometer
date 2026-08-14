@@ -1,0 +1,20 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "gcc-debug",
+            "displayName": "GCC Debug",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/gcc-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "gcc-debug",
+            "configurePreset": "gcc-debug"
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+D:/app/VSCode/project/galvanometer/build/gcc-debug/CMakeFiles/galvanometer.elf.dir
+D:/app/VSCode/project/galvanometer/build/gcc-debug/CMakeFiles/edit_cache.dir
+D:/app/VSCode/project/galvanometer/build/gcc-debug/CMakeFiles/rebuild_cache.dir

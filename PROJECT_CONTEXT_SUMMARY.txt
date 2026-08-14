@@ -1,0 +1,302 @@
+﻿GD32F303 智能穿戴功耗分析仪项目上下文总结
+更新时间：2026-08-14
+
+一、项目定位
+
+本项目是基于 GD32F303CGT6 的智能穿戴设备功耗分析仪，目标是给手表等低功耗设备供电，同时测量 DUT 端电压、电流、功耗，并在 ST7789 屏幕上实时显示和绘制曲线；后续通过 USB CDC 导出快照 CSV 和全量日志，用于功耗分析、简历展示和秋招项目讲解。
+
+项目核心不是单纯电流表，而是“面向低功耗设备的功耗分析工具”：
+- DUT 供电控制
+- INA226 高边采样
+- 10mΩ / 1Ω / 10Ω 三档手动量程
+- ST7789 实时显示
+- 100Hz 采样
+- 环形缓冲区快照
+- USB CDC 导出 CSV
+- 后续 SPI Flash 日志记录
+
+二、硬件状态
+
+板子已经打样、焊接并基本跑通。
+
+已验证：
+- GD32F303CGT6 可通过 ST-LINK 使用 SWD 连接、烧录、调试。
+- ST-LINK 会识别为 STM32F10xx XL-density，Device ID 0x430，Flash 1MB，这是 GD32 兼容识别现象。
+- 5V_IN、3V3_SYS、3V3_DUT_LDO 电压正常。
+- LCD 背光和 ST7789 显示已经正常，之前无法显示颜色主要是 FPC/焊接问题。
+- SPI Flash 能读 ID，读到 13123607，说明 SPI 通信和 GD25Q64 基本正常。
+- I2C 能读到 INA226 ID 0x2260，INA226 工作正常。
+- INA226 三档采样电阻已通过已知电阻负载验证，基础测量链路可用。
+- USB CDC 现在能枚举成 COM 口，并能发送 HELLO、CSV 文本。
+
+硬件注意：
+- 板子 USB D+ 原设计缺少 1.5k 上拉，后续用户临时焊接 1k 上拉到 3V3，使 PC 可以识别 USB CDC。该方案可用于短时间调试，但不是严谨量产方案。
+- Type-C 母座同时负责供电和 USB CDC 通信。
+- ST-LINK 的 3.3V 脚主要是目标电压检测，板子实际供电仍由 Type-C 提供。
+- Type-C 公头输出是专用 DUT 输出，不是标准 USB-C 5V 输出，应避免误插普通设备。
+
+三、硬件量程和测量结果
+
+INA226 shunt voltage 寄存器 0x01 的 LSB 是 2.5uV。
+
+电流计算：
+- Vshunt_uV = shunt_raw * 2.5uV
+- I = Vshunt / Rshunt
+
+三档换算：
+- 10Ω 档：I_uA = shunt_uV / 10
+- 1Ω 档：I_uA = shunt_uV
+- 10mΩ 档：I_uA = shunt_uV * 100
+
+Bus voltage：
+- 0x02 寄存器，LSB = 1.25mV
+- bus_mV = bus_raw * 1.25mV
+
+功耗：
+- power_uW = bus_mV * current_uA / 1000
+
+用户实测记录：
+1. 10Ω 档
+   - 1kΩ 负载：约 3.274mA
+   - 2kΩ 负载：0x01 = 6599，约 1.64975mA
+
+2. 1Ω 档
+   - 330Ω 负载：0x01 = 3981，约 9.9525mA
+   - 100Ω 负载：0x01 = 12997，约 32.4925mA
+
+3. 10mΩ 档
+   - 100Ω 负载：0x01 = 128，约 32mA
+   - 33Ω 负载：0x01 = 385，约 96.25mA
+
+手表实测，10mΩ 全程测量：
+- 亮屏：约 80mA，约 270mW
+- 亮度下降：约 55mA，约 180mW
+- 黑屏：约 1~2mA，约 5mW
+
+量程取舍：
+- 10mΩ 档适合启动、亮屏、大电流，全程不断电最稳，但低电流分辨率差。
+- 10Ω 档适合睡眠小电流，但不适合让手表经历启动/亮屏大电流，会产生明显压降。
+- 当前用户不想热拔插和断电切档，所以先接受 10mΩ 全程测量，用于状态趋势分析。
+
+四、固件工程状态
+
+工程路径：
+D:\app\VSCode\project\galvanometer
+
+重要模块：
+- app/main.c：主循环、采样调度、按键处理、屏幕刷新、CDC 初始化
+- bsp/board.c/.h：时钟、GPIO、SPI、I2C、按键中断、定时器等板级初始化
+- bsp/bsp_lcd.c/.h：ST7789 驱动、画点、画字符串、画波形
+- bsp/bsp_ina226.c/.h：INA226 读取、换算、offset 校准、波形数据、快照导出
+- cdc/cdc.c/.h：USB CDC 初始化、读写、printf、CLI 命令处理
+
+已完成：
+- SWD 调试环境
+- LCD 初始化、方向调整、字符显示、数值显示
+- SPI Flash ID 读取
+- I2C 扫描和 INA226 ID 读取
+- INA226 电压/电流/功耗计算
+- 三档 offset 校准逻辑
+- 按键中断初步可用
+- 100Hz 采样雏形
+- 屏幕顶部实时显示 V/I/P/L
+- 下方波形绘制初步实现
+- USB CDC 枚举、发送文本
+- KEY3 快照 CSV 导出初步实现
+- 自定义 PC 串口接收工具已能保存窗口内容
+
+五、当前代码结构和已知问题
+
+1. CDC 发送分包
+
+cdc_printf 的格式化缓冲区已改到 256，但 USB CDC 单包仍约 64 字节。cdc_write 不能直接截断长数据，应循环分包发送。
+
+建议 cdc_write 逻辑：
+- 判断 USBD_CONFIGURED
+- 获取 usb_cdc_handler
+- while(sent < len)
+  - 等待 cdc_acm_check_ready() 就绪
+  - chunk = min(剩余长度, USB_CDC_RX_LEN)
+  - memcpy 到 cdc->data
+  - 设置 cdc->receive_length
+  - cdc_acm_data_send
+  - sent += chunk
+
+否则长表头和长 CSV 行会被截断，出现“表头和第一行粘在一起”的现象。
+
+2. KEY3 保存失败
+
+PC 工具弹窗：
+[Errno 13] Permission denied: 'C:/Users/33127/Desktop/实训作业/power_log.csv'
+
+原因不是 MCU，而是 PC 文件无法写入：
+- CSV 文件被 Excel/WPS/预览占用
+- 路径权限问题
+- 文件名已被其他程序锁住
+
+解决：
+- 关闭 Excel/WPS
+- 换新文件名，如 power_log_001.csv
+- 避免保存到被保护或同步占用的目录
+
+3. 采样时间不稳定
+
+用户导出的时间列出现 10、50、100、160、210...，不是严格 10ms。主要原因：
+- 采样、LCD 数值刷新、波形绘制、按键处理都在同一个 10ms 分支中
+- LCD 绘制和 I2C 读取会阻塞
+- 如果 CDC 导出在运行中执行，也会进一步阻塞
+
+建议结构：
+- 使用硬件定时器产生 100Hz 节拍
+- 定时器中断只置位 g_sample_10ms_flag，不读 I2C、不刷屏、不发送 CDC
+- 主循环检测 flag 后执行 INA226 读取和缓冲区写入
+- LCD 数值显示降低到 20Hz 或 10Hz
+- 波形绘制可以每个样本画一点，但要优化为只清一列再画点
+- CSV 导出建议暂停采样或使用导出状态机分批发送
+
+4. 主循环调度建议
+
+不要让 10ms 和 50ms 共用同一个 last_sample_ms。
+
+推荐：
+static uint32_t last_sample_ms = 0;
+static uint32_t last_ui_ms = 0;
+
+if(now - last_sample_ms >= 10) {
+    last_sample_ms += 10;
+    ina226_read_sample(...);
+    waveform_push(...);
+}
+
+if(now - last_ui_ms >= 50) {
+    last_ui_ms += 50;
+    lcd_show_power_sample(...);
+}
+
+更专业的下一步是改为 TIMER2 100Hz 中断置标志。
+
+六、LCD 和波形绘制
+
+LCD 已经能显示字符、数值和初步波形。
+
+当前布局大致：
+- 第一行显示实时值：V / I / P / L
+- 下方用于绘制波形
+- 用户希望后续实现类似商业电流计的流畅曲线
+
+已讨论：
+- 不建议整屏 fill，会闪烁
+- 数字区域只刷新数字，不刷新整屏
+- 波形绘制建议只更新最新一列
+- 为避免旧点残留，应先清掉当前 x 坐标的一列，再画新点
+
+lcd_draw_pixel_update 的关键：
+- 如果只 set_window 到一整列但只写一个像素，只会清一个点，不会清整列
+- 应循环写入 WAVE_H 个背景色，清完整列，再画新点
+
+七、环形缓冲区设计思路
+
+用户希望：
+- 日常运行时把采样数据放入 200 点环形缓冲区
+- KEY3 导出当前屏幕/当前 200 点快照
+- 后续每满 200 点写一次 SPI Flash，用于 KEY4 导出全量数据
+
+建议设计：
+- 采样频率 100Hz，200 点约 2 秒
+- KEY3：导出 RAM 环形缓冲区中的最近 200 点 CSV
+- KEY4：导出 Flash 中从启动到当前的完整日志
+
+注意：
+- 如果只在 200 点满时写 Flash，突然断电会丢失当前未满的最多 2 秒数据
+- 改进方法：保留 RAM 当前缓冲区，导出全量时先导出 Flash 已写块，再导出 RAM 未写入部分
+- 后续可加入块头、序号、CRC、range、flags
+
+当前 log_record_t 结构偏“200 点快照”，后续如果做 Flash 日志，建议拆成单条记录结构：
+
+typedef struct {
+    uint32_t time_ms;
+    uint16_t bus_mV;
+    int32_t current_uA;
+    int32_t power_uW;
+    uint8_t range;
+    uint8_t flags;
+    uint16_t crc;
+} log_record_item_t;
+
+flags 可表示：过流、量程变化、按键快照、触发事件等。
+crc 用于后续检查 Flash 数据完整性。
+
+八、USB CDC 和 PC 工具
+
+USB CDC 当前能枚举为 COM 口，并能发送文本。
+
+当前 PC 工具：
+C:\Users\33127\Documents\Codex\2026-07-22\referenced-chatgpt-conversation-this-is-untrusted\serial_tool\serial_logger.py
+
+启动脚本：
+C:\Users\33127\Documents\Codex\2026-07-22\referenced-chatgpt-conversation-this-is-untrusted\serial_tool\run_serial_logger.bat
+
+工具功能：
+- 选择 COM 口
+- 打开/关闭串口
+- 接收文本
+- 可选 HEX 显示
+- 可选本地时间戳
+- 手动保存当前窗口内容到指定文件
+- 发送命令
+
+保存 CSV 时建议：
+- 关闭“加本机时间戳”，否则会污染 CSV
+- 保存后直接用 Excel 打开
+- 若文件被占用会 Permission denied
+
+九、后续优先级清单
+
+短期必须做：
+1. 修 cdc_write 分包发送，保证长 CSV 不截断。
+2. 修 KEY3 CSV 表头和行格式，保证每行都有 \r\n。
+3. 采样调度改成 TIMER2 100Hz 中断置标志，主循环执行采样。
+4. 将 LCD 数值显示和波形绘制从采样任务里分离，避免阻塞 100Hz 采样。
+5. KEY3 导出最近 200 点快照 CSV。
+6. PC 工具稳定保存 CSV。
+
+中期高价值功能：
+1. SPI Flash 日志块存储。
+2. KEY4 导出全量 CSV。
+3. log info / log erase 命令。
+4. Flash 块头、序号、CRC、掉电恢复。
+5. 事件触发：峰值电流、异常唤醒、电压跌落。
+6. PC/Web Dashboard 导入 CSV，显示曲线和续航估算。
+
+后期可选：
+1. FreeRTOS 任务化：采样任务、UI 任务、CDC 任务、日志任务。
+2. SPI DMA 刷屏。
+3. 多量程自动提示或自动切换硬件方案。
+4. 更专业的校准参数保存和误差表。
+
+十、简历表达方向
+
+项目名称建议：
+基于 GD32F303 的智能穿戴设备功耗分析仪
+
+可写重点：
+- 独立完成 GD32F303 + INA226 + ST7789 + SPI Flash + USB CDC 的便携式功耗分析仪设计、打样、焊接和调试。
+- 实现高边电流/电压采样和 10mΩ / 1Ω / 10Ω 多档量程，完成已知负载下的采样电压、电流换算和 offset 校准。
+- 移植 ST7789 驱动，实现电压、电流、功耗实时显示和功耗曲线绘制，解决 SPI 通信、屏幕方向、FPC 焊接等问题。
+- 搭建 GD32F303 的 SWD 调试和 USB CDC 通信链路，实现串口命令、快照导出和 CSV 数据保存。
+- 设计 100Hz 采样和环形缓冲区机制，支持最近窗口快照导出，后续扩展 SPI Flash 长时间日志记录和异常峰值分析。
+- 使用该仪器实测智能手表亮屏、亮度下降和黑屏状态功耗变化，验证工具可用于穿戴设备功耗状态分析。
+
+十一、下次对话快速切入建议
+
+下次可以直接说：
+“先读 D:\app\VSCode\project\galvanometer\PROJECT_CONTEXT_SUMMARY.txt，然后继续帮我改 CDC 分包 / TIMER2 100Hz / KEY3 CSV / Flash 日志。”
+
+如果要让模型直接看代码，优先读：
+- D:\app\VSCode\project\galvanometer\app\main.c
+- D:\app\VSCode\project\galvanometer\cdc\cdc.c
+- D:\app\VSCode\project\galvanometer\cdc\cdc.h
+- D:\app\VSCode\project\galvanometer\bsp\bsp_ina226.c
+- D:\app\VSCode\project\galvanometer\bsp\bsp_ina226.h
+- D:\app\VSCode\project\galvanometer\bsp\bsp_lcd.c
+- D:\app\VSCode\project\galvanometer\bsp\board.c

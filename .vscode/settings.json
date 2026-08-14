@@ -1,0 +1,7 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.useCMakePresets": "always",
+    "files.associations": {
+        "gd32f30x.h": "c"
+    }
+}

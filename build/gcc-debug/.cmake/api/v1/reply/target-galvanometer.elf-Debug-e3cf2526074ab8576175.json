@@ -1,0 +1,537 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "galvanometer.elf"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_options",
+			"add_custom_command",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 74,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 86,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 61,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mfloat-abi=soft"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-unused-parameter"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-O0"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-g3"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "GD32F30X_XD"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "HXTAL_VALUE=16000000U"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/app"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/bsp"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/cdc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-mfloat-abi=soft"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-unused-parameter"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-O0"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-g3"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "GD32F30X_XD"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "HXTAL_VALUE=16000000U"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/app"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/bsp"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/cdc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include"
+				}
+			],
+			"language" : "ASM",
+			"sourceIndexes" : 
+			[
+				15
+			]
+		}
+	],
+	"id" : "galvanometer.elf::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mcpu=cortex-m4",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mthumb",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mfloat-abi=soft",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-TD:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/Ld/gd32f303xE_flash.ld",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,--gc-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,-Map=galvanometer.map",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,--no-warn-rwx-segments",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "--specs=nano.specs",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "--specs=nosys.specs",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "galvanometer.elf",
+	"nameOnDisk" : "galvanometer.elf",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "galvanometer.elf::@6890427a1f51a3e7e1df"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				15
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/board.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/bsp_lcd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/bsp_ina226.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/system_gd32f30x.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/cdc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/cdc_acm_core.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/gd32f30x_usbd_hw.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_core.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_enum.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_transc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_pwr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_lld_core.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cdc/usbd_lld_int.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/newlib/syscalls.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/startup_gd32f30x_xd.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_gpio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_exti.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_spi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_misc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
