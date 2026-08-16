@@ -17,6 +17,7 @@ typedef struct {
     uint32_t bus_mV;
     int32_t current_uA;
     uint32_t power_uW;
+    uint8_t range;
 } power_sample_t;
 
 extern power_sample_t power;
@@ -52,9 +53,8 @@ typedef struct {
 
 extern log_record_t data_log;
 
-void ina226_filter(current_range_t range);
-void ina226_read_sample(current_range_t range, power_sample_t *out);
-void lcd_show_power_sample(const power_sample_t *p, current_range_t range);
+void ina226_filter(power_sample_t *p);
+void ina226_read_sample( power_sample_t *out);
+void lcd_show_power_sample(power_sample_t *p);
 void waveform_push(power_sample_t *data,log_record_t *log);
 void waveform_draw_current(log_record_t *log,type_t type);
-void Snapshot(log_record_t *data_log,current_range_t range);

@@ -6,6 +6,7 @@
 #include "bsp_lcd.h"
 #include "bsp_ina226.h"
 #include "stdio.h"
+#include "bsp_delay.h"
 
 #define LCD_PORT        GPIOA
 #define LCD_RST_PIN     GPIO_PIN_1

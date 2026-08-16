@@ -17,11 +17,13 @@ set(GD32_PERIPH "${GD32_LIB_ROOT}/Firmware/GD32F30x_standard_peripheral")
 set(LINKER_SCRIPT "${GD32_DEVICE}/Source/GCC/Ld/gd32f303xE_flash.ld")
 
 add_executable(${PROJECT_NAME}.elf
-    app/main.c
+    core/main.c
+    core/freertos.c
+    core/gd32f30x_it.c
     bsp/board.c
     bsp/bsp_lcd.c
+    bsp/bsp_delay.c
     bsp/bsp_ina226.c
-    bsp/system_gd32f30x.c
     cdc/cdc.c
     cdc/cdc_acm_core.c
     cdc/gd32f30x_usbd_hw.c
@@ -31,26 +33,47 @@ add_executable(${PROJECT_NAME}.elf
     cdc/usbd_pwr.c
     cdc/usbd_lld_core.c
     cdc/usbd_lld_int.c
-    ${GD32_DEVICE}/Source/GCC/newlib/syscalls.c
-    ${GD32_DEVICE}/Source/GCC/startup_gd32f30x_xd.S
-    ${GD32_PERIPH}/Source/gd32f30x_rcu.c
-    ${GD32_PERIPH}/Source/gd32f30x_gpio.c
-    ${GD32_PERIPH}/Source/gd32f30x_exti.c
-    ${GD32_PERIPH}/Source/gd32f30x_spi.c
-    ${GD32_PERIPH}/Source/gd32f30x_i2c.c
-    ${GD32_PERIPH}/Source/gd32f30x_timer.c
-    ${GD32_PERIPH}/Source/gd32f30x_misc.c
-    ${GD32_PERIPH}/Source/gd32f30x_exti.c
-    ${GD32_PERIPH}/Source/gd32f30x_pmu.c
+    CMSIS/startup_gd32f30x_xd.S
+    CMSIS/system_gd32f30x.c
+    GD32F30x_Driver/src/syscalls.c
+    GD32F30x_Driver/src/gd32f30x_rcu.c
+    GD32F30x_Driver/src/gd32f30x_gpio.c
+    GD32F30x_Driver/src/gd32f30x_exti.c
+    GD32F30x_Driver/src/gd32f30x_spi.c
+    GD32F30x_Driver/src/gd32f30x_i2c.c
+    GD32F30x_Driver/src/gd32f30x_timer.c
+    GD32F30x_Driver/src/gd32f30x_misc.c
+    GD32F30x_Driver/src/gd32f30x_pmu.c
+)
+
+target_sources(galvanometer.elf PRIVATE
+    FreeRTOS/src/tasks.c
+    FreeRTOS/src/queue.c
+    FreeRTOS/src/list.c
+    FreeRTOS/src/timers.c
+    FreeRTOS/src/event_groups.c
+    FreeRTOS/src/stream_buffer.c
+    FreeRTOS/port/GCC/ARM_CM4F/port.c
+    FreeRTOS/port/MemMang/heap_4.c
+    FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c
+    Tasks/user_ina226_Task.c
+    Tasks/user_key_Task.c
+    Tasks/user_lcd_Task.c
+    Tasks/user_messagesend_Task.c
+    Tasks/user_TasksInit.c
 )
 
 target_include_directories(${PROJECT_NAME}.elf PRIVATE
     app
     bsp
     cdc
-    ${GD32_CMSIS}
-    ${GD32_DEVICE}/Include
-    ${GD32_PERIPH}/Include
+    Tasks
+    FreeRTOS
+    FreeRTOS/inc
+    FreeRTOS/port/GCC/ARM_CM4F
+    FreeRTOS/CMSIS_RTOS_V2
+    CMSIS
+    GD32F30x_Driver/inc
 )
 
 target_compile_definitions(${PROJECT_NAME}.elf PRIVATE
@@ -61,7 +84,8 @@ target_compile_definitions(${PROJECT_NAME}.elf PRIVATE
 target_compile_options(${PROJECT_NAME}.elf PRIVATE
     -mcpu=cortex-m4
     -mthumb
-    -mfloat-abi=soft
+    -mfloat-abi=hard
+    -mfpu=fpv4-sp-d16
     -ffunction-sections
     -fdata-sections
     -Wall
@@ -74,7 +98,8 @@ target_compile_options(${PROJECT_NAME}.elf PRIVATE
 target_link_options(${PROJECT_NAME}.elf PRIVATE
     -mcpu=cortex-m4
     -mthumb
-    -mfloat-abi=soft
+    -mfloat-abi=hard
+    -mfpu=fpv4-sp-d16
     -T${LINKER_SCRIPT}
     -Wl,--gc-sections
     -Wl,-Map=${PROJECT_NAME}.map

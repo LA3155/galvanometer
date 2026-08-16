@@ -1,6 +1,7 @@
 #include "board.h"
 #include "bsp_lcd.h"
 #include "font_8X16.h"
+#include "cmsis_os2.h"
 
 static void lcd_cs_low(void) { gpio_bit_reset(LCD_PORT, LCD_CS_PIN); }
 static void lcd_cs_high(void) { gpio_bit_set(LCD_PORT, LCD_CS_PIN); }
@@ -8,14 +9,17 @@ static void lcd_dc_cmd(void) { gpio_bit_reset(LCD_PORT, LCD_DC_PIN); }//引脚�
 static void lcd_dc_data(void) { gpio_bit_set(LCD_PORT, LCD_DC_PIN); }
 font_t font = {8,16,ascii_8x16};
 
+osMutexId_t spi_mutex;
+
 static uint8_t spi0_xfer(uint8_t data)
 {
-    while (RESET == spi_i2s_flag_get(SPI0, SPI_FLAG_TBE)) {// 等待发送缓冲区为空（TBE = Transmit Buffer Empty）
-    }
+    uint8_t result;
+    while (RESET == spi_i2s_flag_get(SPI0, SPI_FLAG_TBE));// 等待发送缓冲区为空（TBE = Transmit Buffer Empty）
     spi_i2s_data_transmit(SPI0, data);
-    while (RESET == spi_i2s_flag_get(SPI0, SPI_FLAG_RBNE)) {
-    }
-    return (uint8_t)spi_i2s_data_receive(SPI0);
+    while (RESET == spi_i2s_flag_get(SPI0, SPI_FLAG_RBNE));
+    result = (uint8_t)spi_i2s_data_receive(SPI0);
+    
+    return result;
 }
 
 static void lcd_write_cmd(uint8_t cmd)
@@ -89,6 +93,7 @@ void lcd_init(void)
     lcd_write_cmd(0x13); // Normal display mode on
     lcd_write_cmd(0x29); // Display on
     delay_ms(50);
+    lcd_fill_color(BLACK);
 }
 
 /**

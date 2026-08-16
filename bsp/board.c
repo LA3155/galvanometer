@@ -1,26 +1,6 @@
 #include "board.h"
 #include "usbd_lld_int.h"
 
-static volatile uint32_t g_ms_ticks;
-
-void SysTick_Handler(void)
-{
-    g_ms_ticks++;
-}
-
-uint32_t Sys_GetTick(void)
-{
-    return g_ms_ticks;
-}
-
-
-void delay_ms(uint32_t ms)
-{
-    uint32_t start = g_ms_ticks;
-    while ((g_ms_ticks - start) < ms) {
-    }
-}
-
 void board_clock_init(void)
 {
     SystemCoreClockUpdate();
@@ -133,67 +113,12 @@ void key_exti_init(void)
     exti_init(EXTI_0, EXTI_INTERRUPT, EXTI_TRIG_FALLING);
     exti_interrupt_flag_clear(EXTI_0);
 
-    nvic_irq_enable(EXTI10_15_IRQn, 2, 0);
+    nvic_irq_enable(EXTI10_15_IRQn, 5, 0);
 
-    nvic_irq_enable(EXTI0_IRQn, 2, 0);
+    nvic_irq_enable(EXTI0_IRQn, 5, 0);
 }
 
 volatile uint8_t g_key_event = 0;
-
-void EXTI10_15_IRQHandler(void)
-{
-    if (RESET != exti_interrupt_flag_get(EXTI_13)) {
-        exti_interrupt_flag_clear(EXTI_13);
-        g_key_event |= 0x01;
-    }
-    if (RESET != exti_interrupt_flag_get(EXTI_14)) {
-        exti_interrupt_flag_clear(EXTI_14);
-        g_key_event |= 0x02;
-    }
-    if (RESET != exti_interrupt_flag_get(EXTI_15)) {
-        exti_interrupt_flag_clear(EXTI_15);
-        g_key_event |= 0x04;
-    }
-}
-
-void EXTI0_IRQHandler(void)
-{
-    if (RESET != exti_interrupt_flag_get(EXTI_0)) {
-        exti_interrupt_flag_clear(EXTI_0);
-        g_key_event |= 0x08;
-    }
-}
-
-void USBD_LP_CAN0_RX0_IRQHandler(void)
-{
-    usbd_isr();
-}
-
-void timer2_100hz_init(void)
-{
-    timer_parameter_struct timer_initpara;
-    rcu_periph_clock_enable(RCU_TIMER2);
-
-    timer_deinit(TIMER2);
-    timer_struct_para_init(&timer_initpara);
-    /*
-       120MHz / 12000 = 10kHz
-       10kHz / 10 = 1000Hz,1ms中断
-    */
-    timer_initpara.prescaler        = 12000 -1;
-    timer_initpara.alignedmode      = TIMER_COUNTER_EDGE;
-    timer_initpara.counterdirection = TIMER_COUNTER_UP;
-    timer_initpara.period           = 10 -1;
-    timer_initpara.clockdivision    = TIMER_CKDIV_DIV1;
-    timer_initpara.repetitioncounter= 0;
-    
-    timer_init(TIMER2,&timer_initpara);
-    timer_interrupt_flag_clear(TIMER2,TIMER_INT_FLAG_UP);
-    timer_interrupt_enable(TIMER2,TIMER_INT_UP);
-
-    nvic_irq_enable(TIMER2_IRQn,1,0);
-    timer_enable(TIMER2);
-}
 
 void board_init(void)
 {
@@ -203,7 +128,6 @@ void board_init(void)
     spi_config();
     i2c_config();
     key_exti_init();
-    timer2_100hz_init();
 }
 
 void dut_power_set(uint8_t on)

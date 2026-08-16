@@ -6,6 +6,7 @@
 #include "usbd_hw.h"
 #include "usbd_core.h"
 #include "board.h"
+#include "bsp_delay.h"
 
 static usb_dev usbd_cdc = {0};
 static char cli_line[CLI_LINE_MAX];

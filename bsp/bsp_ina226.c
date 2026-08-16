@@ -5,12 +5,14 @@
 #include "board.h"
 #include "cdc.h"
 
-power_sample_t power = {0};
+power_sample_t power = {
+    .range = 2,
+};
 log_record_t   data_log = {0};
 
 float offset_raw[3] = {43.41,3.622,-1.03};
 
-void ina226_filter(current_range_t range)
+void ina226_filter(power_sample_t *p)
 {
     int32_t sum = 0;
     int32_t i;
@@ -18,44 +20,37 @@ void ina226_filter(current_range_t range)
     {
         sum += i2c_readreg(0X40,0X01);
     }
-    offset_raw[range] = (float)sum/300.0f;
+    offset_raw[p->range] = (float)sum/300.0f;
 }
 
-void ina226_read_sample(current_range_t range, power_sample_t *out)
+void ina226_read_sample(power_sample_t *out)
 {
     out->bus_raw        = i2c_readreg(0X40,0X02);//负载电压大小，进而算出功率
     out->shunt_raw      = i2c_readreg(0X40,0X01);//负载电压大小，进而算出功率
-    float corrected_raw = (float)out->shunt_raw - offset_raw[range];//采样电阻电压，进而得出负载电流大小
+    float corrected_raw = (float)out->shunt_raw - offset_raw[out->range];//采样电阻电压，进而得出负载电流大小
     out->shunt_uV       = ((int32_t)corrected_raw * 25) / 10;
     out->bus_mV         = ((uint32_t)out->bus_raw * 125) / 100;
-    if(range == RANGE_10MR)
+    if(out->range == RANGE_10MR)
     {
         out->current_uA  = out->shunt_uV *100;
     }
-    else if(range == RANGE_1R)
+    else if(out->range == RANGE_1R)
     {
         out->current_uA  = out->shunt_uV;
     }
-    else if(range == RANGE_10R)
+    else if(out->range == RANGE_10R)
     {
         out->current_uA  = out->shunt_uV /10;
     }
     out->power_uW = (uint32_t)(((int64_t)out->bus_mV * out->current_uA) / 1000);
 }
 
-void lcd_show_power_sample(const power_sample_t *p, current_range_t range)
+void lcd_show_power_sample(power_sample_t *p)
 {
     char line[32];
-    const char *range_text = "10m";
     uint32_t bus_mV = p->bus_mV;
     int32_t current_mA = p->current_uA / 1000;
     uint32_t power_mW = p->power_uW / 1000;
-
-    if (range == RANGE_10R) {
-        range_text = "10R";
-    } else if (range == RANGE_1R) {
-        range_text = "1R ";
-    }
 
     if (bus_mV > 9999U) {
         bus_mV = 9999U;
@@ -69,12 +64,12 @@ void lcd_show_power_sample(const power_sample_t *p, current_range_t range)
         power_mW = 999U;
     }
 
-    snprintf(line, sizeof(line), "V:%lu.%02luV I:%03ldmA P:%03lumW L:%s",
-             bus_mV / 1000,
-             (bus_mV % 1000) / 10,
-             current_mA,
-             power_mW,
-             range_text);
+    snprintf(line, sizeof(line), "V:%lu.%02luV I:%03ldmA P:%03lumW L:%d",
+             p->bus_mV / 1000,
+             (p->bus_mV % 1000) / 10,
+             p->current_uA/1000,
+             p->power_uW/1000,
+             p->range);
     lcd_draw_string(0, 0, line, WHITE, BLACK);
 }
 
@@ -177,30 +172,5 @@ void waveform_draw_current(log_record_t *data_log,type_t type)
     {
         data_log->index  = 0;
         data_log->filled = 1;
-    }
-}
-
-// void Snapshot(log_record_t *data_log,current_range_t range)
-// {
-//     int16_t i = 0;
-//     cdc_printf("时间,量程,电流,电压,功耗,电流MAX,电流MIN,电压MAX,电压MIN,功耗MAX,功耗MIN\r\n");
-//     cdc_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n",
-//             data_log->time_ms[i],range+1,data_log->current_uA[i],data_log->bus_mV[i],data_log->power_uW[i],
-//             data_log->max_uA,data_log->min_uA,data_log->max_mV,data_log->min_mV,data_log->max_uW,data_log->min_uW);
-//     for (i = 1; i < 200; i++)
-//     {
-//         cdc_printf("%d,%d,%d,%d,%d\r\n",
-//             data_log->time_ms[i],range+1,data_log->current_uA[i],data_log->bus_mV[i],data_log->power_uW[i]);
-//     }
-// }
-
-void Snapshot(log_record_t *data_log,current_range_t range)
-{
-    int16_t i = 0;
-    for (i = 1; i < 200; i++)
-    {
-        cdc_printf("%d\r\n",
-            data_log->time_ms[i]);
-            delay_ms(2);
     }
 }

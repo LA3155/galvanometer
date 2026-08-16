@@ -49,22 +49,42 @@ cmake_ninja_workdir = D$:/app/VSCode/project/galvanometer/build/gcc-debug/
 
 build cmake_object_order_depends_target_galvanometer.elf: phony || .
 
-build CMakeFiles/galvanometer.elf.dir/app/main.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/app/main.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/core/main.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/core/main.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\app\main.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\core\main.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\app
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\core
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/core/freertos.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/core/freertos.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\core\freertos.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\core
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/core/gd32f30x_it.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/core/gd32f30x_it.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\core\gd32f30x_it.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\core
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
 build CMakeFiles/galvanometer.elf.dir/bsp/board.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/bsp/board.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\bsp\board.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\bsp
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -73,8 +93,18 @@ build CMakeFiles/galvanometer.elf.dir/bsp/bsp_lcd.c.obj: C_COMPILER__galvanomete
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\bsp\bsp_lcd.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\bsp
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/bsp/bsp_delay.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/bsp/bsp_delay.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\bsp\bsp_delay.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\bsp
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -83,18 +113,8 @@ build CMakeFiles/galvanometer.elf.dir/bsp/bsp_ina226.c.obj: C_COMPILER__galvanom
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\bsp\bsp_ina226.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
-  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\bsp
-  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
-
-build CMakeFiles/galvanometer.elf.dir/bsp/system_gd32f30x.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/bsp/system_gd32f30x.c || cmake_object_order_depends_target_galvanometer.elf
-  CONFIG = Debug
-  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\bsp\system_gd32f30x.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\bsp
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -103,8 +123,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/cdc.c.obj: C_COMPILER__galvanometer.2e
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\cdc.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -113,8 +133,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/cdc_acm_core.c.obj: C_COMPILER__galvan
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\cdc_acm_core.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -123,8 +143,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/gd32f30x_usbd_hw.c.obj: C_COMPILER__ga
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\gd32f30x_usbd_hw.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -133,8 +153,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_core.c.obj: C_COMPILER__galvanome
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_core.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -143,8 +163,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_enum.c.obj: C_COMPILER__galvanome
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_enum.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -153,8 +173,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_transc.c.obj: C_COMPILER__galvano
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_transc.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -163,8 +183,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_pwr.c.obj: C_COMPILER__galvanomet
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_pwr.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -173,8 +193,8 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_core.c.obj: C_COMPILER__galva
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_lld_core.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
@@ -183,110 +203,260 @@ build CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_int.c.obj: C_COMPILER__galvan
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
   DEP_FILE = CMakeFiles\galvanometer.elf.dir\cdc\usbd_lld_int.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\cdc
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/newlib/syscalls.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/newlib/syscalls.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/CMSIS/startup_gd32f30x_xd.S.obj: ASM_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/CMSIS/startup_gd32f30x_xd.S || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\CMSIS\GD\GD32F30x\Source\GCC\newlib\syscalls.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\CMSIS\startup_gd32f30x_xd.S.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\CMSIS\GD\GD32F30x\Source\GCC\newlib
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\CMSIS
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/startup_gd32f30x_xd.S.obj: ASM_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/startup_gd32f30x_xd.S || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/CMSIS/system_gd32f30x.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/CMSIS/system_gd32f30x.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\CMSIS\GD\GD32F30x\Source\GCC\startup_gd32f30x_xd.S.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\CMSIS\system_gd32f30x.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\CMSIS\GD\GD32F30x\Source\GCC
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\CMSIS
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/syscalls.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/syscalls.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_rcu.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\syscalls.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_gpio.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_gpio.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_rcu.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_rcu.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_gpio.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_rcu.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_exti.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_exti.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_gpio.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_gpio.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_exti.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_gpio.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_spi.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_spi.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_exti.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_exti.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_spi.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_exti.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_spi.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_spi.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_i2c.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_spi.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_i2c.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_i2c.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_timer.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_i2c.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_misc.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_misc.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_timer.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_timer.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_misc.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_timer.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
-build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c || cmake_object_order_depends_target_galvanometer.elf
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_misc.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_misc.c || cmake_object_order_depends_target_galvanometer.elf
   CONFIG = Debug
   DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
-  DEP_FILE = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source\gd32f30x_pmu.c.obj.d
-  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
-  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Include -ID:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Include
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_misc.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
-  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\18b0034fe5fc5c048cf541c3f185a55b\GD32F30x_Firmware_Library_V3.0.3\GD32F30x_Firmware_Library_V3.0.3\Firmware\GD32F30x_standard_peripheral\Source
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_pmu.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/GD32F30x_Driver/src/gd32f30x_pmu.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src\gd32f30x_pmu.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\GD32F30x_Driver\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/tasks.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/tasks.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\tasks.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/queue.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/queue.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\queue.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/list.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/list.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\list.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/timers.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/timers.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\timers.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/event_groups.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/event_groups.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\event_groups.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/stream_buffer.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/src/stream_buffer.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src\stream_buffer.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\src
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/port/GCC/ARM_CM4F/port.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F/port.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\port\GCC\ARM_CM4F\port.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\port\GCC\ARM_CM4F
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/port/MemMang/heap_4.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/port/MemMang/heap_4.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\port\MemMang\heap_4.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\port\MemMang
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\FreeRTOS\CMSIS_RTOS_V2\cmsis_os2.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\FreeRTOS\CMSIS_RTOS_V2
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/Tasks/user_ina226_Task.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/Tasks/user_ina226_Task.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\Tasks\user_ina226_Task.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\Tasks
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/Tasks/user_key_Task.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/Tasks/user_key_Task.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\Tasks\user_key_Task.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\Tasks
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/Tasks/user_lcd_Task.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/Tasks/user_lcd_Task.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\Tasks\user_lcd_Task.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\Tasks
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/Tasks/user_messagesend_Task.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/Tasks/user_messagesend_Task.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\Tasks\user_messagesend_Task.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\Tasks
+  TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
+
+build CMakeFiles/galvanometer.elf.dir/Tasks/user_TasksInit.c.obj: C_COMPILER__galvanometer.2eelf_unscanned_Debug D$:/app/VSCode/project/galvanometer/Tasks/user_TasksInit.c || cmake_object_order_depends_target_galvanometer.elf
+  CONFIG = Debug
+  DEFINES = -DGD32F30X_XD -DHXTAL_VALUE=16000000U
+  DEP_FILE = CMakeFiles\galvanometer.elf.dir\Tasks\user_TasksInit.c.obj.d
+  FLAGS = -g -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -O0 -g3
+  INCLUDES = -ID:/app/VSCode/project/galvanometer/app -ID:/app/VSCode/project/galvanometer/bsp -ID:/app/VSCode/project/galvanometer/cdc -ID:/app/VSCode/project/galvanometer/Tasks -ID:/app/VSCode/project/galvanometer/FreeRTOS -ID:/app/VSCode/project/galvanometer/FreeRTOS/inc -ID:/app/VSCode/project/galvanometer/FreeRTOS/port/GCC/ARM_CM4F -ID:/app/VSCode/project/galvanometer/FreeRTOS/CMSIS_RTOS_V2 -ID:/app/VSCode/project/galvanometer/CMSIS -ID:/app/VSCode/project/galvanometer/GD32F30x_Driver/inc
+  OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\galvanometer.elf.dir\Tasks
   TARGET_SUPPORT_DIR = CMakeFiles\galvanometer.elf.dir
 
 
@@ -297,10 +467,10 @@ build CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_
 #############################################
 # Link the executable galvanometer.elf
 
-build galvanometer.elf: C_EXECUTABLE_LINKER__galvanometer.2eelf_Debug CMakeFiles/galvanometer.elf.dir/app/main.c.obj CMakeFiles/galvanometer.elf.dir/bsp/board.c.obj CMakeFiles/galvanometer.elf.dir/bsp/bsp_lcd.c.obj CMakeFiles/galvanometer.elf.dir/bsp/bsp_ina226.c.obj CMakeFiles/galvanometer.elf.dir/bsp/system_gd32f30x.c.obj CMakeFiles/galvanometer.elf.dir/cdc/cdc.c.obj CMakeFiles/galvanometer.elf.dir/cdc/cdc_acm_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/gd32f30x_usbd_hw.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_enum.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_transc.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_pwr.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_int.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/newlib/syscalls.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/startup_gd32f30x_xd.S.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_gpio.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_exti.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_spi.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_misc.c.obj CMakeFiles/galvanometer.elf.dir/18b0034fe5fc5c048cf541c3f185a55b/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c.obj
+build galvanometer.elf: C_EXECUTABLE_LINKER__galvanometer.2eelf_Debug CMakeFiles/galvanometer.elf.dir/core/main.c.obj CMakeFiles/galvanometer.elf.dir/core/freertos.c.obj CMakeFiles/galvanometer.elf.dir/core/gd32f30x_it.c.obj CMakeFiles/galvanometer.elf.dir/bsp/board.c.obj CMakeFiles/galvanometer.elf.dir/bsp/bsp_lcd.c.obj CMakeFiles/galvanometer.elf.dir/bsp/bsp_delay.c.obj CMakeFiles/galvanometer.elf.dir/bsp/bsp_ina226.c.obj CMakeFiles/galvanometer.elf.dir/cdc/cdc.c.obj CMakeFiles/galvanometer.elf.dir/cdc/cdc_acm_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/gd32f30x_usbd_hw.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_enum.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_transc.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_pwr.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_core.c.obj CMakeFiles/galvanometer.elf.dir/cdc/usbd_lld_int.c.obj CMakeFiles/galvanometer.elf.dir/CMSIS/startup_gd32f30x_xd.S.obj CMakeFiles/galvanometer.elf.dir/CMSIS/system_gd32f30x.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/syscalls.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_rcu.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_gpio.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_exti.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_spi.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_i2c.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_timer.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_misc.c.obj CMakeFiles/galvanometer.elf.dir/GD32F30x_Driver/src/gd32f30x_pmu.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/tasks.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/queue.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/list.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/timers.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/event_groups.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/src/stream_buffer.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/port/GCC/ARM_CM4F/port.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/port/MemMang/heap_4.c.obj CMakeFiles/galvanometer.elf.dir/FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c.obj CMakeFiles/galvanometer.elf.dir/Tasks/user_ina226_Task.c.obj CMakeFiles/galvanometer.elf.dir/Tasks/user_key_Task.c.obj CMakeFiles/galvanometer.elf.dir/Tasks/user_lcd_Task.c.obj CMakeFiles/galvanometer.elf.dir/Tasks/user_messagesend_Task.c.obj CMakeFiles/galvanometer.elf.dir/Tasks/user_TasksInit.c.obj
   CONFIG = Debug
   FLAGS = -g
-  LINK_FLAGS = -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -TD:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/Ld/gd32f303xE_flash.ld -Wl,--gc-sections -Wl,-Map=galvanometer.map -Wl,--no-warn-rwx-segments --specs=nano.specs --specs=nosys.specs
+  LINK_FLAGS = -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -TD:/app/VSCode/project/galvanometer/firmware_lib/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/GD32F30x_Firmware_Library_V3.0.3/Firmware/CMSIS/GD/GD32F30x/Source/GCC/Ld/gd32f303xE_flash.ld -Wl,--gc-sections -Wl,-Map=galvanometer.map -Wl,--no-warn-rwx-segments --specs=nano.specs --specs=nosys.specs
   OBJECT_DIR = CMakeFiles\galvanometer.elf.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\app\VSCode\project\galvanometer\build\gcc-debug && arm-none-eabi-size D:/app/VSCode/project/galvanometer/build/gcc-debug/galvanometer.elf && arm-none-eabi-objcopy -O ihex D:/app/VSCode/project/galvanometer/build/gcc-debug/galvanometer.elf galvanometer.hex && arm-none-eabi-objcopy -O binary D:/app/VSCode/project/galvanometer/build/gcc-debug/galvanometer.elf galvanometer.bin"
   PRE_LINK = cd .
