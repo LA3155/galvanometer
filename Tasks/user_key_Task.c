@@ -1,6 +1,6 @@
 #include "user_key_Task.h"
 #include "cmsis_os2.h"
-#include "bsp_ina226.h"
+#include "power_sample.h"
 
 extern osMessageQueueId_t key_queue;
 extern osEventFlagsId_t message;

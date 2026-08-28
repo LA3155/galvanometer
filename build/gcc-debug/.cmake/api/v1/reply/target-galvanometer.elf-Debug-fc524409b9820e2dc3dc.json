@@ -36,37 +36,37 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 98,
+				"line" : 115,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 111,
+				"line" : 128,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 84,
+				"line" : 101,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 79,
+				"line" : 96,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 66,
+				"line" : 81,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 49,
+				"line" : 63,
 				"parent" : 0
 			}
 		]
@@ -156,6 +156,14 @@
 				},
 				{
 					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/core"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/midfunc"
+				},
+				{
+					"backtrace" : 6,
 					"path" : "D:/app/VSCode/project/galvanometer/Tasks"
 				},
 				{
@@ -202,6 +210,7 @@
 				13,
 				14,
 				15,
+				16,
 				17,
 				18,
 				19,
@@ -211,7 +220,6 @@
 				23,
 				24,
 				25,
-				26,
 				27,
 				28,
 				29,
@@ -225,7 +233,19 @@
 				37,
 				38,
 				39,
-				40
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52
 			]
 		},
 		{
@@ -306,6 +326,14 @@
 				},
 				{
 					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/core"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/app/VSCode/project/galvanometer/midfunc"
+				},
+				{
+					"backtrace" : 6,
 					"path" : "D:/app/VSCode/project/galvanometer/Tasks"
 				},
 				{
@@ -336,7 +364,7 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				16
+				26
 			]
 		}
 	],
@@ -438,6 +466,7 @@
 				13,
 				14,
 				15,
+				16,
 				17,
 				18,
 				19,
@@ -447,7 +476,6 @@
 				23,
 				24,
 				25,
-				26,
 				27,
 				28,
 				29,
@@ -461,14 +489,26 @@
 				37,
 				38,
 				39,
-				40
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				16
+				26
 			]
 		}
 	],
@@ -477,7 +517,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "core/main.c",
+			"path" : "core/dma.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/flash.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -495,25 +541,55 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "bsp/board.c",
+			"path" : "core/gpio.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "bsp/bsp_lcd.c",
+			"path" : "core/i2c.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "bsp/bsp_delay.c",
+			"path" : "core/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "bsp/bsp_ina226.c",
+			"path" : "core/spi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/delay.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/ina226.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/key.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "bsp/lcd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "midfunc/hwdataaccess.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -568,6 +644,30 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "cdc/usbd_lld_int.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/event_detect.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/log_store.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/power_sample.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/waveform_draw.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -637,6 +737,12 @@
 			"sourceGroupIndex" : 0
 		},
 		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GD32F30x_Driver/src/gd32f30x_dma.c",
+			"sourceGroupIndex" : 0
+		},
+		{
 			"backtrace" : 7,
 			"compileGroupIndex" : 0,
 			"path" : "FreeRTOS/src/tasks.c",
@@ -688,6 +794,12 @@
 			"backtrace" : 7,
 			"compileGroupIndex" : 0,
 			"path" : "FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "Tasks/user_hardwareinit_Task.c",
 			"sourceGroupIndex" : 0
 		},
 		{

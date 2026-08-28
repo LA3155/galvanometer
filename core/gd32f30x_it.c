@@ -1,10 +1,11 @@
 #include "gd32f30x_it.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
-#include "board.h"
 #include "usbd_lld_int.h"
+#include "dma.h"
 
 extern osMessageQueueId_t key_queue;
+extern osSemaphoreId_t dma_done_sem;
 
 void USBD_LP_CAN0_RX0_IRQHandler(void)
 {
@@ -43,5 +44,14 @@ void EXTI0_IRQHandler(void)
         exti_interrupt_flag_clear(EXTI_0);
         key_code = 4;
         osMessageQueuePut(key_queue,&key_code,0,0);
+    }
+}
+
+void DMA0_Channel2_IRQHandler(void)
+{
+    if(RESET != dma_interrupt_flag_get(DMA0,DMA_CH2,DMA_INTF_FTFIF))
+    {
+        dma_interrupt_flag_clear(DMA0,DMA_CH2,DMA_INTF_FTFIF);
+        osSemaphoreRelease(dma_done_sem);
     }
 }

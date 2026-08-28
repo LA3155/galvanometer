@@ -17,13 +17,20 @@ set(GD32_PERIPH "${GD32_LIB_ROOT}/Firmware/GD32F30x_standard_peripheral")
 set(LINKER_SCRIPT "${GD32_DEVICE}/Source/GCC/Ld/gd32f303xE_flash.ld")
 
 add_executable(${PROJECT_NAME}.elf
-    core/main.c
+    core/dma.c
+    core/flash.c
     core/freertos.c
     core/gd32f30x_it.c
-    bsp/board.c
-    bsp/bsp_lcd.c
-    bsp/bsp_delay.c
-    bsp/bsp_ina226.c
+    core/gpio.c
+    core/i2c.c
+    core/main.c
+    core/spi.c
+    bsp/delay.c
+    bsp/ina226.c
+    bsp/key.c
+    bsp/lcd.c
+    midfunc/hwdataaccess.c
+
     cdc/cdc.c
     cdc/cdc_acm_core.c
     cdc/gd32f30x_usbd_hw.c
@@ -33,6 +40,12 @@ add_executable(${PROJECT_NAME}.elf
     cdc/usbd_pwr.c
     cdc/usbd_lld_core.c
     cdc/usbd_lld_int.c
+
+    app/event_detect.c
+    app/log_store.c
+    app/power_sample.c
+    app/waveform_draw.c
+
     CMSIS/startup_gd32f30x_xd.S
     CMSIS/system_gd32f30x.c
     GD32F30x_Driver/src/syscalls.c
@@ -44,6 +57,7 @@ add_executable(${PROJECT_NAME}.elf
     GD32F30x_Driver/src/gd32f30x_timer.c
     GD32F30x_Driver/src/gd32f30x_misc.c
     GD32F30x_Driver/src/gd32f30x_pmu.c
+    GD32F30x_Driver/src/gd32f30x_dma.c
 )
 
 target_sources(galvanometer.elf PRIVATE
@@ -56,6 +70,7 @@ target_sources(galvanometer.elf PRIVATE
     FreeRTOS/port/GCC/ARM_CM4F/port.c
     FreeRTOS/port/MemMang/heap_4.c
     FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c
+    Tasks/user_hardwareinit_Task.c
     Tasks/user_ina226_Task.c
     Tasks/user_key_Task.c
     Tasks/user_lcd_Task.c
@@ -67,6 +82,8 @@ target_include_directories(${PROJECT_NAME}.elf PRIVATE
     app
     bsp
     cdc
+    core
+    midfunc
     Tasks
     FreeRTOS
     FreeRTOS/inc

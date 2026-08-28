@@ -1,4 +1,4 @@
-#include "board.h"
+#include "main.h"
 #include "cdc.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -8,9 +8,11 @@ void MX_FREERTOS_Init(void);
 
 int main(void)
 {
-    board_init();
-    cdc_init();
-    lcd_init();
+    SystemCoreClockUpdate();
+    mx_gpio_init();
+    mx_spi_init();
+    mx_i2c_init();
+    mx_dma_init();
 
     osKernelInitialize();
     MX_FREERTOS_Init();

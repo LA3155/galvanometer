@@ -3,7 +3,7 @@
 #include "usbd_core.h"
 #include <stddef.h>
 #include <stdint.h>
-#include "bsp_ina226.h"
+#include "ina226.h"
 #define CLI_LINE_MAX 64
 
 

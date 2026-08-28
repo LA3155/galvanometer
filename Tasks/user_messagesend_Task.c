@@ -2,8 +2,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "cmsis_os2.h"
-#include "bsp_ina226.h"
+#include "ina226.h"
 #include "cdc.h"
+#include "log_store.h"
 #include "user_key_Task.h"
 
 extern osEventFlagsId_t message;
@@ -39,7 +40,7 @@ void message_Task(void* argument)
         }
         if (flags & EVENT_KEY4)
         {
-            Snapshot(&data_log,&power);
+            log_export_csv();
         }
         osDelay(1);
     }

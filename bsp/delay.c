@@ -1,4 +1,4 @@
-#include "bsp_delay.h"
+#include "delay.h"
 #include "gd32f30x.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -38,7 +38,7 @@ void delay_us(uint32_t nus)
 void delay_ms(uint32_t ms)
 {
     // 如果 FreeRTOS 调度器已启动，使用 vTaskDelay（不占CPU）
-    if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED) {
+    if (xTaskGetSchedulerState() == taskSCHEDULER_RUNNING) {
         vTaskDelay(pdMS_TO_TICKS(ms));
         return;
     }
