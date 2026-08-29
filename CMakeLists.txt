@@ -16,6 +16,10 @@ set(GD32_DEVICE "${GD32_CMSIS}/GD/GD32F30x")
 set(GD32_PERIPH "${GD32_LIB_ROOT}/Firmware/GD32F30x_standard_peripheral")
 set(LINKER_SCRIPT "${GD32_DEVICE}/Source/GCC/Ld/gd32f303xE_flash.ld")
 
+file(GLOB_RECURSE LVGL_SOURCES 
+    "LVGL/src/*.c"
+)
+
 add_executable(${PROJECT_NAME}.elf
     core/dma.c
     core/flash.c
@@ -30,6 +34,7 @@ add_executable(${PROJECT_NAME}.elf
     bsp/key.c
     bsp/lcd.c
     midfunc/hwdataaccess.c
+    midfunc/page_manager.c
 
     cdc/cdc.c
     cdc/cdc_acm_core.c
@@ -46,6 +51,8 @@ add_executable(${PROJECT_NAME}.elf
     app/power_sample.c
     app/waveform_draw.c
 
+    GUI/ui_current.c
+
     CMSIS/startup_gd32f30x_xd.S
     CMSIS/system_gd32f30x.c
     GD32F30x_Driver/src/syscalls.c
@@ -61,6 +68,11 @@ add_executable(${PROJECT_NAME}.elf
 )
 
 target_sources(galvanometer.elf PRIVATE
+    ${LVGL_SOURCES}    
+    LVGL/port/lv_port_disp.c
+)
+
+target_sources(galvanometer.elf PRIVATE
     FreeRTOS/src/tasks.c
     FreeRTOS/src/queue.c
     FreeRTOS/src/list.c
@@ -70,10 +82,12 @@ target_sources(galvanometer.elf PRIVATE
     FreeRTOS/port/GCC/ARM_CM4F/port.c
     FreeRTOS/port/MemMang/heap_4.c
     FreeRTOS/CMSIS_RTOS_V2/cmsis_os2.c
+
     Tasks/user_hardwareinit_Task.c
     Tasks/user_ina226_Task.c
     Tasks/user_key_Task.c
     Tasks/user_lcd_Task.c
+    Tasks/user_lv_Task.c
     Tasks/user_messagesend_Task.c
     Tasks/user_TasksInit.c
 )
@@ -91,6 +105,11 @@ target_include_directories(${PROJECT_NAME}.elf PRIVATE
     FreeRTOS/CMSIS_RTOS_V2
     CMSIS
     GD32F30x_Driver/inc
+
+    GUI
+    LVGL
+    LVGL/src
+    LVGL/port
 )
 
 target_compile_definitions(${PROJECT_NAME}.elf PRIVATE
@@ -108,8 +127,8 @@ target_compile_options(${PROJECT_NAME}.elf PRIVATE
     -Wall
     -Wextra
     -Wno-unused-parameter
-    -O0
-    -g3
+    -Og
+    -g
 )
 
 target_link_options(${PROJECT_NAME}.elf PRIVATE

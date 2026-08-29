@@ -42,3 +42,4 @@ void lcd_draw_char(uint16_t x, uint16_t y, char ch,const font_t *font, uint16_t 
 void lcd_draw_string(uint16_t x, uint16_t y, const char *str, uint16_t fg, uint16_t bg);
 void lcd_draw_line_into_buf(uint16_t buf[][WAVE_W],int16_t x0,int16_t y0,int16_t x1,int16_t y1,uint16_t color);
 void lcd_set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
+void lcd_color_fill(uint16_t x1, uint16_t y1, uint16_t x2,uint16_t y2, uint16_t color);

@@ -1,1 +1,52 @@
-﻿firmware_lib/
+﻿# ==========================================
+# 1. 编译构建产物
+# ==========================================
+build/
+bin/
+obj/
+out/
+cmake-build-*/
+compile_commands.json
+
+# 二进制目标与临时文件
+*.elf
+*.bin
+*.hex
+*.map
+*.o
+*.obj
+*.d
+*.a
+*.lib
+
+# ==========================================
+# 2. 原厂冗余大包
+# ==========================================
+firmware_lib/
+
+# ==========================================
+# 3. IDE 与编辑器缓存
+# ==========================================
+# 忽略 VSCode 内部状态，但保留 launch.json / tasks.json / 推荐插件
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/settings.json
+!.vscode/c_cpp_properties.json
+!.vscode/openocd_gd32f303_stlink.cfg
+
+.idea/
+.cache/
+*.swp
+*.bak
+*~
+
+# ==========================================
+# 4. 操作系统生成的临时文件
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+#5.规则
+.agents

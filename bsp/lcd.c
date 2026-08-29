@@ -94,6 +94,22 @@ void lcd_fill_color(uint16_t color)
     }
 }
 
+void lcd_color_fill(uint16_t x1, uint16_t y1, uint16_t x2,uint16_t y2, uint16_t color)
+{
+    uint16_t w = (x1 > x2)?(x1 - x2):(x2 - x1);
+    uint16_t h = (y1 > y2)?(y1 - y2):(y2 - y1);
+    uint8_t buf[w*2];
+    for (uint32_t i = 0; i < w; i++) {
+        buf[i*2] = ((uint8_t)(color >> 8));
+        buf[i*2 +1] = ((uint8_t)color);
+    }
+    lcd_set_window(x1,y1,x1+w-1,y1+h-1);
+    for (int i = 0; i < h; i++)
+    {
+        lcd_send_data(buf,w*2);
+    }
+}
+
 void lcd_init(void)
 {
     gpio_bit_reset(LCD_PORT, LCD_RST_PIN);

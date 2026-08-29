@@ -4,7 +4,7 @@
 #include "cmsis_os2.h"
 
 osTimerId_t ina226TimerHandle;
-osTimerId_t lcdTimerHandle;
+osTimerId_t messageTimerHandle;
 
 osThreadId_t hardwareinitTaskHandle;
 const osThreadAttr_t hardwareinitTask_attibutes = {
@@ -41,7 +41,16 @@ const osThreadAttr_t messageTask_attibutes = {
     .priority = (osPriority_t) osPriorityNormal,
 };
 
+osThreadId_t lvTaskHandle;
+const osThreadAttr_t lvTask_attibutes = {
+    .name = "lv",
+    .stack_size = 256*12,
+    .priority = (osPriority_t) osPriorityNormal,
+};
+
 osMessageQueueId_t key_queue;
+osMessageQueueId_t ina226_queue;
+osMessageQueueId_t lv_queue;
 //信号量
 osSemaphoreId_t sem;
 osSemaphoreId_t dma_done_sem;
@@ -53,19 +62,22 @@ osMutexId_t     spi_mutex;
 
 void User_Tasks_Init(void)
 {
-    key_queue = osMessageQueueNew(1,1,NULL);
-    sem       = osSemaphoreNew(1,0,NULL);
-    dma_done_sem = osSemaphoreNew(1,0,NULL);
-    message   = osEventFlagsNew(NULL);
+    key_queue       = osMessageQueueNew(1,1,NULL);
+    ina226_queue    = osMessageQueueNew(1,1,NULL);
+    lv_queue        = osMessageQueueNew(1,1,NULL);
+    sem             = osSemaphoreNew(1,0,NULL);
+    dma_done_sem    = osSemaphoreNew(1,0,NULL);
+    message         = osEventFlagsNew(NULL);
     lcd_ready_evt   = osEventFlagsNew(NULL);
-    spi_mutex    = osMutexNew(NULL);
+    spi_mutex       = osMutexNew(NULL);
 
     hardwareinitTaskHandle  = osThreadNew(hardwareinit_Task,NULL,&hardwareinitTask_attibutes);
     keyTaskHandle           = osThreadNew(key_Task,NULL,&keyTask_attibutes);
     lcdTaskHandle           = osThreadNew(lcd_Task,NULL,&lcdTask_attibutes);
     ina226TaskHandle        = osThreadNew(ina226_Task,NULL,&ina226Task_attibutes);
     messageTaskHandle       = osThreadNew(message_Task,NULL,&messageTask_attibutes);
+    lvTaskHandle            = osThreadNew(lv_Task,NULL,&lvTask_attibutes);
 
-    ina226TimerHandle = osTimerNew(ina226TimerCallback,osTimerPeriodic,NULL,NULL);
-    osTimerStart(ina226TimerHandle,10);
+    messageTimerHandle = osTimerNew(messageTimerCallback,osTimerPeriodic,NULL,NULL);
+    osTimerStart(messageTimerHandle,1);
 }

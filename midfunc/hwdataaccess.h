@@ -49,3 +49,5 @@ typedef struct
     HW_LCD_Interfacetypedef     lcd;
 }HW_DATAACCESS_Interfacetypedef;
 
+extern HW_DATAACCESS_Interfacetypedef hw_dataaccess;
+

@@ -10,7 +10,7 @@ void HW_ina226_Init(void)
 void HW_flash_init(void)
 {
 	#if HW_FLASH
-		return lcd_init();
+		return ;
 	#endif
 }
 

@@ -6,11 +6,11 @@ extern osEventFlagsId_t lcd_ready_evt;
 
 void lcd_Task(void* argument)
 {
-    osEventFlagsWait(lcd_ready_evt, 1<<0, osFlagsWaitAny | osFlagsNoClear, osWaitForever);
+    // osEventFlagsWait(lcd_ready_evt, 1<<0, osFlagsWaitAny | osFlagsNoClear, osWaitForever);
     while (1)
     {
-        lcd_show_power_sample(&power);
-        waveform_redraw(&data_log,Power);
+        // lcd_show_power_sample(&power);
+        // waveform_redraw(&data_log,Power);
         osDelay(20);
     }
 }
