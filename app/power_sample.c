@@ -11,6 +11,23 @@ void ina226_filter(power_sample_t *p)
     p->offset[p->range] = (float)sum/300.0f;
 }
 
+void power_integrate_update(uint32_t current_uA,int32_t power_uW,uint32_t dt_ms)
+{
+    if(current_uA > 0)
+    {
+        // 1 小时 = 3600 秒 = 3,600,000 毫秒
+        // uA * ms / 3,600,000 = uAh
+        // uAh / 1000 = mAh
+        double delta_mAh = (double)(current_uA * dt_ms) / 3600000000.0;
+
+        double delta_mWh = (power_uW * dt_ms) / 3600000000.0;
+
+        g_integral.energy_mAh += delta_mAh;
+        g_integral.energy_mWh += delta_mWh;
+        g_integral.total_samples++;
+    }
+}
+
 void ina226_read_sample(power_sample_t *out)
 {
     out->bus_raw        = ina226_read(0X02);//负载电压大小，进而算出功率
@@ -31,6 +48,7 @@ void ina226_read_sample(power_sample_t *out)
         out->current_uA  = out->shunt_uV /10;
     }
     out->power_uW = (uint32_t)(((int64_t)out->bus_mV * out->current_uA) / 1000);
+    power_integrate_update(out->current_uA,out->power_uW,10);
 }
 
 void waveform_push(power_sample_t *data,log_record_t *data_log)

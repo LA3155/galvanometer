@@ -7,6 +7,7 @@
 #include "string.h"
 
 power_sample_t power;
+power_integral_t g_integral = {0};
 log_record_t   data_log;
 
 void ina226_init(void)

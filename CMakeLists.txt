@@ -52,6 +52,7 @@ add_executable(${PROJECT_NAME}.elf
     app/waveform_draw.c
 
     GUI/ui_current.c
+    GUI/ui_consumption.c
 
     CMSIS/startup_gd32f30x_xd.S
     CMSIS/system_gd32f30x.c

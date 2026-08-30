@@ -1,4 +1,6 @@
 #include "user_key_Task.h"
+#include "page_manager.h"
+#include "ui_consumption.h"
 #include "cmsis_os2.h"
 #include "power_sample.h"
 
@@ -25,10 +27,15 @@ void key_Task(void* argument)
 
             case KEY3:
                 osEventFlagsSet(message,EVENT_KEY3);
+                if(page_get_nowpage() != &page_consumption)
+                {
+                    page_load(&page_consumption);
+                }
                 break;
 
             case KEY4:
-                osEventFlagsSet(message,EVENT_KEY4);
+                // osEventFlagsSet(message,EVENT_KEY4);
+                page_back();
                 break;
             default:
                 break;

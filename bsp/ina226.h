@@ -3,17 +3,25 @@
 #include <stdint.h>
 
 typedef struct {
-    int16_t shunt_raw;
-    uint16_t bus_raw;
-    int32_t shunt_uV;
-    uint32_t bus_mV;
-    int32_t current_uA;
-    uint32_t power_uW;
-    uint8_t range;
-    float offset[3];
+    int16_t     shunt_raw;
+    uint16_t    bus_raw;
+    int32_t     shunt_uV;
+    uint32_t    bus_mV;
+    int32_t     current_uA;
+    uint32_t    power_uW;
+    uint8_t     range;
+    float       offset[3];
 } power_sample_t;
 
-extern power_sample_t power;
+typedef struct 
+{
+    double      energy_mAh;
+    double      energy_mWh;
+    uint32_t    total_samples;
+}power_integral_t;
+
+extern power_sample_t   power;
+extern power_integral_t g_integral;
 
 typedef enum {
     RANGE_10R,
