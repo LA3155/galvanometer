@@ -21,15 +21,14 @@ void HW_lcd_init(void)
 	#endif
 }
 
+
 HW_DATAACCESS_Interfacetypedef hw_dataaccess = 
 {
-    .ina226 = 
-    {
-        .Init = ina226_init,
+    .ina226 = {
+        .Init = HW_ina226_Init,
     },
 
-    .lcd = 
-    {
-        .Init = lcd_init,
+    .lcd = {
+        .Init = HW_lcd_init,
     },
 };

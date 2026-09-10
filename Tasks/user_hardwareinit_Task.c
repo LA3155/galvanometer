@@ -20,7 +20,6 @@ void hardwareinit_Task(void* argument)
 {
     hw_dataaccess.lcd.Init();
     hw_dataaccess.ina226.Init();
-    key_exti_init();
     cdc_init();
     lv_init();
     lv_port_disp_init();

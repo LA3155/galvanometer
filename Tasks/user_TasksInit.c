@@ -48,7 +48,6 @@ const osThreadAttr_t lvTask_attibutes = {
     .priority = (osPriority_t) osPriorityNormal,
 };
 
-osMessageQueueId_t key_queue;
 osMessageQueueId_t ina226_queue;
 osMessageQueueId_t lv_queue;
 //信号量
@@ -62,7 +61,6 @@ osMutexId_t     spi_mutex;
 
 void User_Tasks_Init(void)
 {
-    key_queue       = osMessageQueueNew(1,1,NULL);
     ina226_queue    = osMessageQueueNew(1,1,NULL);
     lv_queue        = osMessageQueueNew(1,1,NULL);
     sem             = osSemaphoreNew(1,0,NULL);
@@ -75,7 +73,6 @@ void User_Tasks_Init(void)
     keyTaskHandle           = osThreadNew(key_Task,NULL,&keyTask_attibutes);
     lcdTaskHandle           = osThreadNew(lcd_Task,NULL,&lcdTask_attibutes);
     ina226TaskHandle        = osThreadNew(ina226_Task,NULL,&ina226Task_attibutes);
-    messageTaskHandle       = osThreadNew(message_Task,NULL,&messageTask_attibutes);
     lvTaskHandle            = osThreadNew(lv_Task,NULL,&lvTask_attibutes);
 
     messageTimerHandle = osTimerNew(messageTimerCallback,osTimerPeriodic,NULL,NULL);

@@ -47,3 +47,4 @@ void log_write_event(event_type_t evt, power_state_t before,
                      const log_point_t *pre, uint8_t pre_n,
                      const log_point_t *post, uint8_t post_n);
 void log_export_csv(void);
+void Snapshot(log_record_t *data_log,power_sample_t *p);

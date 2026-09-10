@@ -11,6 +11,14 @@ void ina226_filter(power_sample_t *p)
     p->offset[p->range] = (float)sum/300.0f;
 }
 
+void range_switch(void)
+{
+    power.range++;
+    if(power.range > 3){
+        power.range = 0;
+    }
+}
+
 void power_integrate_update(uint32_t current_uA,int32_t power_uW,uint32_t dt_ms)
 {
     if(current_uA > 0)

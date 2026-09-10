@@ -47,6 +47,7 @@ add_executable(${PROJECT_NAME}.elf
     cdc/usbd_lld_int.c
 
     app/event_detect.c
+    app/key_core.c
     app/log_store.c
     app/power_sample.c
     app/waveform_draw.c
@@ -89,7 +90,6 @@ target_sources(galvanometer.elf PRIVATE
     Tasks/user_key_Task.c
     Tasks/user_lcd_Task.c
     Tasks/user_lv_Task.c
-    Tasks/user_messagesend_Task.c
     Tasks/user_TasksInit.c
 )
 

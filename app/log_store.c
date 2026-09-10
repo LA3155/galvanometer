@@ -138,3 +138,22 @@ void log_export_csv(void)
         n++;
     }
 }
+
+void Snapshot(log_record_t *data_log,power_sample_t *p)
+{
+    int16_t i = 0;
+    cdc_printf("时间,量程,电流,电压,功耗,电流MAX,电流MIN,");
+    osDelay(2);
+    cdc_printf("电压MAX,电压MIN,功耗MAX,功耗MIN\r\n");
+    osDelay(2);
+    cdc_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n",
+            data_log->time_ms[i],p->range+1,data_log->current_uA[i],data_log->bus_mV[i],data_log->power_uW[i],
+            data_log->max_uA,data_log->min_uA,data_log->max_mV,data_log->min_mV,data_log->max_uW,data_log->min_uW);
+    osDelay(2);
+    for (i = 1; i < 200; i++)
+    {
+        cdc_printf("%d,%d,%d,%d,%d\r\n",
+            data_log->time_ms[i],p->range+1,data_log->current_uA[i],data_log->bus_mV[i],data_log->power_uW[i]);
+        osDelay(2);
+    }
+}
